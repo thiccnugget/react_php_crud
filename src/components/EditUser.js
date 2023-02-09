@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Form, Button } from "react-bootstrap";
 
-export default function ListUser() {
+export default function EditUser() {
     const navigate = useNavigate();
     const [inputs, setInputs] = useState([]);
     const {id} = useParams();
@@ -13,7 +13,7 @@ export default function ListUser() {
     }, []);
 
     function getUser() {
-        axios.get(`https://thiccnugget.ddns.net/api/user/${id}`).then(function(response) {
+        axios.get(`https://thiccnugget.ddns.net/api/${id}/`).then(function(response) {
             setInputs(response.data);
         });
     }
@@ -30,7 +30,7 @@ export default function ListUser() {
 
         if (inputs.name.replaceAll(' ','') !== "" && inputs.email.replaceAll(' ','') !== "" && inputs.mobile.replaceAll(' ','') !== "") {
             //Richiesta PUT -> modifica di un record nel DB
-            axios.put(`https://thiccnugget.ddns.net/api/user/${id}/edit`, inputs).then(function(response){
+            axios.put(`https://thiccnugget.ddns.net/api/${id}/`, inputs).then(function(response){
             if(response.data === 1){
                 alert("Modifica effettuata con successo!");
                 //SOSTITUIRE CON ALERT BOOTSTRAP

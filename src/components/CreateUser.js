@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 
-export default function ListUser() {
+export default function CreateUser() {
     const navigate = useNavigate();
 
     const [inputs, setInputs] = useState([]);
@@ -21,7 +21,7 @@ export default function ListUser() {
         event.preventDefault();
         if (inputs.name.replaceAll(' ','') !== "" && inputs.email.replaceAll(' ','') !== "" && inputs.mobile.replaceAll(' ','') !== "") {
             //Richiesta HTTP POST -> inserimento dati in input nel DB
-            axios.post('https://thiccnugget.ddns.net/api/user/save', inputs).then(function(response){
+            axios.post('https://thiccnugget.ddns.net/api/', inputs).then(function(response){
                 if(response.data === 1){
                     alert("Inserimento avvenuto con successo!");
                     //SOSTITUIRE CON ALERT BOOTSTRAP

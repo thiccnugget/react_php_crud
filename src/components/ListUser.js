@@ -7,14 +7,14 @@ export default function ListUser() {
 
     //Funzione getUsers() -> richiesta GET al server per prendere i dati degli utenti dal DB
     function getUsers() {
-        axios.get('https://thiccnugget.ddns.net/api/users/').then(function(response) {
+        axios.get('https://thiccnugget.ddns.net/api/').then(function(response) {
             setUsers(response.data);
         });
     }
 
     //Funzione deleteUser() -> richiesta 
     const deleteUser = (id) => {
-        axios.delete(`https://thiccnugget.ddns.net/api/user/${id}/delete`).then(function(response){
+        axios.delete(`https://thiccnugget.ddns.net/api/${id}/`).then(function(response){
             getUsers();
         });
     }
