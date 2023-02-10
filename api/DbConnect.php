@@ -1,7 +1,4 @@
 <?php
-	/**
-	* Database Connection
-	**/
 	class DbConnect {
 		private $server = '172.24.0.2';
 		private $dbname = 'MYSQL_DATABASE';
